@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Héctor Severino - Grupo Turbos y Repuestos
 
-## Getting Started
+Este proyecto es una aplicación web de comercio electrónico para una empresa líder industrial en sistemas de turbocompresores, suministros y mantenimiento especializado.
 
-First, run the development server:
+## Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Diseño Moderno e Industrial**: Interfaz limpia y profesional utilizando Tailwind CSS v4.
+- **Next.js 16 (App Router)**: Aprovecha las últimas convenciones de Next.js para un rendimiento óptimo.
+- **Componentización**: Estructura modular y reutilizable.
+- **Seguridad de Rutas**: Configuración de proxy y cabeceras de seguridad integradas.
+- **Optimización de Fuentes**: Uso de `next/font/google` para Inter y Work Sans.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Requisitos Previos
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Node.js](https://nodejs.org/) (versión 18.x o superior)
+- [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Instalación y Uso Local
 
-## Learn More
+Sigue estos pasos para ejecutar el proyecto en tu entorno local:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clonar el repositorio:**
+   ```bash
+   git clone <url-del-repositorio>
+   cd frontend-tyr
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Instalar las dependencias:**
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Ejecutar el servidor de desarrollo:**
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+4. **Ver el proyecto:**
+   Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Estructura del Proyecto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/`: Contiene las páginas y componentes principales.
+  - `components/`: Componentes esenciales (Navbar, Hero, Footer, etc.).
+  - `proxy.ts`: Lógica de proxying y seguridad de rutas.
+  - `layout.tsx`: Configuración global de fuentes y estilos.
+  - `page.tsx`: Página de inicio.
+- `public/`: Archivos estáticos.
+- `next.config.ts`: Configuración de Next.js incluyendo cabeceras de seguridad.
+
+## Tecnologías Utilizadas
+
+- **Next.js 16**
+- **React 19**
+- **Tailwind CSS v4**
+- **TypeScript**
+
+## Seguridad
+
+El proyecto incluye:
+- Cabeceras de seguridad HTTP (X-Content-Type-Options, X-Frame-Options, etc.) configuradas en `next.config.ts`.
+- Un manejador de `proxy.ts` para filtrado de rutas y validación de accesos.
+
+---
+© 2026 Héctor Severino - Grupo Turbos y Repuestos.

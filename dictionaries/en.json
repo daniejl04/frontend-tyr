@@ -1,0 +1,69 @@
+{
+  "navbar": {
+    "turbochargers": "Turbochargers",
+    "spareParts": "Spare Parts",
+    "services": "Services",
+    "about": "About",
+    "searchPlaceholder": "Search specific parts..."
+  },
+  "hero": {
+    "titlePrefix": "PRECISION",
+    "titleSpan": "ENGINEERED",
+    "titleSuffix": "POWER.",
+    "description": "Héctor Severino provides industrial-grade turbochargers and components for heavy-duty performance. Built for reliability, delivered with expertise.",
+    "ctaExplore": "Explore Catalog",
+    "ctaQuote": "Request Quote",
+    "floatingBadge": "High-Flow Turbine Model TX-4500"
+  },
+  "categories": {
+    "title": "Industrial",
+    "titleSpan": "Ecosystem",
+    "description": "Comprehensive solutions for heavy machinery turbo systems and mechanical maintenance.",
+    "turbochargersTitle": "TURBOCHARGERS",
+    "turbochargersDesc": "Complete units for CAT, Komatsu, and Volvo.",
+    "sparePartsTitle": "SPARE PARTS",
+    "sparePartsDesc": "Precision machined internal components.",
+    "engineeringServices": "Specialized Engineering Services",
+    "engineeringDesc": "Dynamic balancing, technical diagnostics, and performance optimization for heavy-duty turbines.",
+    "bookService": "Book Service",
+    "viewSeries": "View Series"
+  },
+  "catalog": {
+    "title": "Precision Catalog",
+    "inStock": "In Stock",
+    "bestSeller": "Best Seller",
+    "products": [
+      { "title": "Cartridge Assembly CHRA", "model": "Model: GT35-82R" },
+      { "title": "Full Gasket Repair Set", "model": "Compatible: S300 Series" },
+      { "title": "Heavy Duty Actuator", "model": "Adjustable: 15-35 PSI" },
+      { "title": "Komatsu S6D125 Turbo", "model": "Genuine OEM Replacement" }
+    ]
+  },
+  "restoration": {
+    "title": "ELITE",
+    "titleSpan": "RESTORATION",
+    "titleSuffix": "LAB.",
+    "description": "Don't replace when you can restore to OEM specifications. Our specialized workshop uses aerospace-grade balancing and ultrasonic cleaning to give your turbines a second life.",
+    "feature1": "High-Speed Dynamic Balancing",
+    "feature2": "Component Integrity Mapping",
+    "feature3": "6-Month Service Warranty",
+    "diagnosticCTA": "Book Diagnostic",
+    "turnaround": "24h",
+    "turnaroundLabel": "Diagnostic Turnaround"
+  },
+  "stats": {
+    "inventory": "Parts in Inventory",
+    "repairs": "Turbos Repaired Yearly",
+    "expertise": "Technical Expertise",
+    "reliability": "Reliability Rate"
+  },
+  "footer": {
+    "description": "Industrial leaders in turbocharger systems, supply, and specialized maintenance for the global market.",
+    "nav": "Navigation",
+    "support": "Support",
+    "join": "Join the Chain",
+    "joinDesc": "Subscribe to technical updates and new stock alerts.",
+    "emailPlaceholder": "YOUR EMAIL",
+    "copyright": "© 2024 HÉCTOR SEVERINO - GRUPO TURBOS Y REPUESTOS. PRECISION ENGINEERED."
+  }
+}

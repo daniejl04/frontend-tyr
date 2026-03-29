@@ -1,0 +1,69 @@
+{
+  "navbar": {
+    "turbochargers": "Turbocompresores",
+    "spareParts": "Repuestos",
+    "services": "Servicios",
+    "about": "Acerca de",
+    "searchPlaceholder": "Buscar piezas específicas..."
+  },
+  "hero": {
+    "titlePrefix": "POTENCIA",
+    "titleSpan": "DE INGENIERÍA",
+    "titleSuffix": "DE PRECISIÓN.",
+    "description": "Héctor Severino suministra turbocompresores y componentes de grado industrial para un rendimiento de alta resistencia. Construido para la fiabilidad, entregado con experiencia.",
+    "ctaExplore": "Explorar Catálogo",
+    "ctaQuote": "Solicitar Cotización",
+    "floatingBadge": "Turbina de Alto Flujo Modelo TX-4500"
+  },
+  "categories": {
+    "title": "Ecosistema",
+    "titleSpan": "Industrial",
+    "description": "Soluciones integrales para sistemas turbo de maquinaria pesada y mantenimiento mecánico.",
+    "turbochargersTitle": "TURBOCOMPRESORES",
+    "turbochargersDesc": "Unidades completas para CAT, Komatsu y Volvo.",
+    "sparePartsTitle": "REPUESTOS",
+    "sparePartsDesc": "Componentes internos mecanizados de precisión.",
+    "engineeringServices": "Servicios Especializados de Ingeniería",
+    "engineeringDesc": "Equilibrado dinámico, diagnóstico técnico y optimización de rendimiento para turbinas de carga pesada.",
+    "bookService": "Reservar Servicio",
+    "viewSeries": "Ver Series"
+  },
+  "catalog": {
+    "title": "Catálogo de Precisión",
+    "inStock": "En Stock",
+    "bestSeller": "Más Vendido",
+    "products": [
+      { "title": "Ensamblaje de Cartucho CHRA", "model": "Modelo: GT35-82R" },
+      { "title": "Juego de Reparación de Juntas", "model": "Compatible: Serie S300" },
+      { "title": "Actuador de Alta Resistencia", "model": "Ajustable: 15-35 PSI" },
+      { "title": "Turbo Komatsu S6D125", "model": "Reemplazo Original OEM" }
+    ]
+  },
+  "restoration": {
+    "title": "LAB.",
+    "titleSpan": "RESTAURACIÓN",
+    "titleSuffix": "DE ÉLITE",
+    "description": "No reemplace cuando puede restaurar a especificaciones OEM. Nuestro taller especializado utiliza equilibrado de grado aeroespacial y limpieza ultrasónica para dar una segunda vida a sus turbinas.",
+    "feature1": "Equilibrado Dinámico de Alta Velocidad",
+    "feature2": "Mapeo de Integridad de Componentes",
+    "feature3": "6 Meses de Garantía de Servicio",
+    "diagnosticCTA": "Reservar Diagnóstico",
+    "turnaround": "24h",
+    "turnaroundLabel": "Plazo de Diagnóstico"
+  },
+  "stats": {
+    "inventory": "Piezas en Inventario",
+    "repairs": "Turbos Reparados Anualmente",
+    "expertise": "Experiencia Técnica",
+    "reliability": "Tasa de Fiabilidad"
+  },
+  "footer": {
+    "description": "Líderes industriales en sistemas de turbocompresores, suministro y mantenimiento especializado para el mercado global.",
+    "nav": "Navegación",
+    "support": "Soporte",
+    "join": "Únete a la Cadena",
+    "joinDesc": "Suscríbete a actualizaciones técnicas y alertas de nuevo stock.",
+    "emailPlaceholder": "TU EMAIL",
+    "copyright": "© 2024 HÉCTOR SEVERINO - GRUPO TURBOS Y REPUESTOS. INGENIERÍA DE PRECISIÓN."
+  }
+}
