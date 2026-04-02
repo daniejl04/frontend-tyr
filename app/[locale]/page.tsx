@@ -21,7 +21,7 @@ export default async function Home({
       <main className="pt-20">
         <Hero dict={dict.hero} />
         <CategoryGrid dict={dict.categories} />
-        <ProductCatalog dict={dict.catalog} />
+        <ProductCatalog dict={dict.catalog} locale={locale} />
         <RestorationLab dict={dict.restoration} />
         <Stats dict={dict.stats} />
       </main>

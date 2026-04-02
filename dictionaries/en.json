@@ -65,5 +65,51 @@
     "joinDesc": "Subscribe to technical updates and new stock alerts.",
     "emailPlaceholder": "YOUR EMAIL",
     "copyright": "© 2024 HÉCTOR SEVERINO - GRUPO TURBOS Y REPUESTOS. PRECISION ENGINEERED."
+  },
+  "catalogPage": {
+    "title": "INDUSTRIAL TURBO CATALOG",
+    "description": "Precision-engineered turbochargers and high-performance components for heavy machinery, marine, and industrial applications.",
+    "filters": {
+      "title": "REFINE RESULTS",
+      "manufacturer": "MANUFACTURER",
+      "yearRange": "YEAR RANGE",
+      "componentType": "COMPONENT TYPE",
+      "priceRange": "PRICE RANGE [USD]"
+    },
+    "results": {
+      "showing": "SHOWING 1-12 OF 84 PRECISION PARTS",
+      "sortBy": "SORT BY:",
+      "sortOptions": {
+        "performance": "Highest Performance",
+        "priceLow": "Price: Low to High",
+        "priceHigh": "Price: High to Low"
+      }
+    },
+    "products": [
+      { "title": "Garrett G-Series G57-2350", "model": "Optimized for 20L+ industrial engines.", "price": "$4,250.00" },
+      { "title": "BorgWarner K31 Series", "model": "Standard replacement for CAT C15 engines.", "price": "$2,890.00" },
+      { "title": "V-Band Installation Kit", "model": "High-pressure sealing kit with titanium-coated fasteners.", "price": "$450.00" },
+      { "title": "Holset HE500VG Variable", "model": "Variable Geometry technology for improved torque across the entire range.", "price": "$5,120.00" },
+      { "title": "S300SXE Core Assembly", "model": "Pre-balanced rotating assembly. Includes ceramic ball-bearing.", "price": "$1,150.00" },
+      { "title": "IHI RHE8 High Flow", "model": "Specially tuned for marine diesel applications. Superior corrosion resistance.", "price": "$3,750.00" }
+    ],
+    "customEngineering": {
+      "title": "NEED CUSTOM ENGINEERING?",
+      "description": "Our workshop provides bespoke turbo mapping for heavy industrial applications.",
+      "cta": "CONSULT ENGINEER"
+    }
+  },
+  "productDetail": {
+    "sku": "SKU",
+    "quantity": "QUANTITY",
+    "buyNow": "BUY NOW",
+    "requestQuote": "REQUEST INSTALLATION QUOTE",
+    "certifiedOem": "CERTIFIED OEM",
+    "globalShipping": "GLOBAL SHIPPING",
+    "technicalSpecs": "TECHNICAL SPECIFICATIONS",
+    "engineCompatibility": "ENGINE COMPATIBILITY",
+    "needFit": "Need a specific fit?",
+    "needFitDesc": "Our engineers can verify fitment for your specific serial number within 24 hours.",
+    "consultExpert": "CONSULT AN EXPERT"
   }
 }

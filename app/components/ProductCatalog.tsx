@@ -1,46 +1,10 @@
 import React from "react";
+import ProductCard from "./ProductCard";
 
-interface ProductCardProps {
-  title: string;
-  model: string;
-  price: string;
-  image: string;
-  inStock?: boolean;
-  bestSeller?: boolean;
-  dict: any;
-}
-
-const ProductCard = ({ title, model, price, image, inStock, bestSeller, dict }: ProductCardProps) => {
-  return (
-    <div className={`bg-surface-container-lowest p-6 flex flex-col group relative ${bestSeller ? 'border-4 border-primary-container' : ''}`}>
-      {inStock && (
-        <div className="absolute top-4 right-4 bg-error text-white text-[10px] font-bold px-2 py-1 uppercase tracking-widest z-10">{dict.inStock}</div>
-      )}
-      {bestSeller && (
-        <div className="absolute top-0 left-0 bg-primary-container text-on-primary-container text-[10px] font-black px-3 py-1 uppercase tracking-[0.2em] z-10">{dict.bestSeller}</div>
-      )}
-      <div className="mb-8 overflow-hidden aspect-square flex items-center justify-center">
-        <img 
-          alt={title} 
-          className="w-4/5 group-hover:scale-110 transition-transform duration-500" 
-          src={image}
-        />
-      </div>
-      <h4 className="font-headline font-black text-lg tracking-tight uppercase leading-none">{title}</h4>
-      <p className="text-tertiary text-xs mt-2 uppercase font-bold tracking-widest">{model}</p>
-      <div className="mt-auto pt-6 flex justify-between items-center border-t border-outline-variant/20">
-        <span className="text-2xl font-headline font-black">{price}</span>
-        <button className={`p-2 transition-colors ${bestSeller ? 'bg-primary-container hover:bg-on-primary-container hover:text-white' : 'bg-surface-variant hover:bg-primary-container'}`}>
-          <span className="material-symbols-outlined">add_shopping_cart</span>
-        </button>
-      </div>
-    </div>
-  );
-};
-
-const ProductCatalog = ({ dict }: { dict: any }) => {
+const ProductCatalog = ({ dict, locale }: { dict: any, locale: string }) => {
   const products = [
     {
+      id: "gtx3584rs",
       title: dict.products[0].title,
       model: dict.products[0].model,
       price: "$450.00",
@@ -48,18 +12,21 @@ const ProductCatalog = ({ dict }: { dict: any }) => {
       inStock: true
     },
     {
+      id: "gtx3584rs",
       title: dict.products[1].title,
       model: dict.products[1].model,
       price: "$125.00",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCqnKNyyKs-gOB3XjNrGcrELeRuGcxhr3XIFJWXRY0tiIMddWrXAhJA3-UP8t7dLKxLIKJBiQWmHwe6ZeY-oJs-9koSxwiJy5V1WAJ-aJdHDg0tKrTXUbl6CLJ-5EqmK7tQvQNTMW7osfK_G-61-QZOcBnUcLQL2_ZZtT_GpmLm_hceGM2LvqMY2YJKjkAziId0y8k6U038ze6luvWro7zJx34nioNrcSRjMBA9iFZ1RECr3GWuZ8I4Q794WTgsdCOsEWuuuVZ2dbk7",
     },
     {
+      id: "gtx3584rs",
       title: dict.products[2].title,
       model: dict.products[2].model,
       price: "$89.00",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAl4ZIVSQHUFXvlDHoo50CjIDUu6Y6v6KxHzCrUTN3L0t-ghvgGV8ylAdUednvA752qvwNRdbfUKbQzH6hfqir2yiHMqBHsGzMQuQqYpwR9r8Gg7rfFaj0rmLRbhxJVuzFh0IDfpzrNj3K7o4yHpip5Bjm5uL8aPVB4_tm0sdlrdx4QskUW1lG_plclrhgyQgRZfBUL92cZ0yLMIbf4kFEWXJKqRIpqkhPh7_B0uNiFZGyDPVsPPQ4G6Sm7_c-zhywGw5RUXH4b8VJ8",
     },
     {
+      id: "gtx3584rs",
       title: dict.products[3].title,
       model: dict.products[3].model,
       price: "$1,850.00",
@@ -77,7 +44,7 @@ const ProductCatalog = ({ dict }: { dict: any }) => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product, index) => (
-            <ProductCard key={index} {...product} dict={dict} />
+            <ProductCard key={index} {...product} dict={dict} locale={locale} />
           ))}
         </div>
       </div>

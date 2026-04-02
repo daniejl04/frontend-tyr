@@ -65,5 +65,51 @@
     "joinDesc": "Suscríbete a actualizaciones técnicas y alertas de nuevo stock.",
     "emailPlaceholder": "TU EMAIL",
     "copyright": "© 2024 HÉCTOR SEVERINO - GRUPO TURBOS Y REPUESTOS. INGENIERÍA DE PRECISIÓN."
+  },
+  "catalogPage": {
+    "title": "CATÁLOGO TURBO INDUSTRIAL",
+    "description": "Turbocompresores de ingeniería de precisión y componentes de alto rendimiento para aplicaciones industriales, marinas y de maquinaria pesada.",
+    "filters": {
+      "title": "REFINAR RESULTADOS",
+      "manufacturer": "FABRICANTE",
+      "yearRange": "RANGO DE AÑO",
+      "componentType": "TIPO DE COMPONENTE",
+      "priceRange": "RANGO DE PRECIO [USD]"
+    },
+    "results": {
+      "showing": "MOSTRANDO 1-12 DE 84 PIEZAS DE PRECISIÓN",
+      "sortBy": "ORDENAR POR:",
+      "sortOptions": {
+        "performance": "Mayor Rendimiento",
+        "priceLow": "Precio: Menor a Mayor",
+        "priceHigh": "Precio: Mayor a Menor"
+      }
+    },
+    "products": [
+      { "title": "Garrett Serie-G G57-2350", "model": "Optimizado para motores industriales de 20L+.", "price": "$4.250,00" },
+      { "title": "Serie BorgWarner K31", "model": "Reemplazo estándar para motores CAT C15.", "price": "$2.890,00" },
+      { "title": "Kit de Instalación V-Band", "model": "Kit de sellado de alta presión con fijaciones de titanio.", "price": "$450,00" },
+      { "title": "Holset HE500VG Variable", "model": "Tecnología de Geometría Variable para un par motor mejorado.", "price": "$5.120,00" },
+      { "title": "Ensamblaje S300SXE Core", "model": "Ensamblaje rotativo equilibrado. Incluye rodamientos cerámicos.", "price": "$1.150,00" },
+      { "title": "IHI RHE8 High Flow", "model": "Afinado para aplicaciones diesel marinas. Alta resistencia a corrosión.", "price": "$3.750,00" }
+    ],
+    "customEngineering": {
+      "title": "¿NECESITA INGENIERÍA PERSONALIZADA?",
+      "description": "Nuestro taller ofrece mapeo turbo a medida para aplicaciones industriales pesadas.",
+      "cta": "CONSULTAR INGENIERO"
+    }
+  },
+  "productDetail": {
+    "sku": "SKU",
+    "quantity": "CANTIDAD",
+    "buyNow": "COMPRAR AHORA",
+    "requestQuote": "SOLICITAR COTIZACIÓN DE INSTALACIÓN",
+    "certifiedOem": "CERTIFICADO OEM",
+    "globalShipping": "ENVÍO GLOBAL",
+    "technicalSpecs": "ESPECIFICACIONES TÉCNICAS",
+    "engineCompatibility": "COMPATIBILIDAD DE MOTOR",
+    "needFit": "¿Necesita un ajuste específico?",
+    "needFitDesc": "Nuestros ingenieros pueden verificar el ajuste para su número de serie específico en 24 horas.",
+    "consultExpert": "CONSULTAR A UN EXPERTO"
   }
 }
