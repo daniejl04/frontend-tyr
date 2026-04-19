@@ -111,5 +111,52 @@
     "needFit": "Need a specific fit?",
     "needFitDesc": "Our engineers can verify fitment for your specific serial number within 24 hours.",
     "consultExpert": "CONSULT AN EXPERT"
+  },
+  "cart": {
+    "title": "YOUR COMPONENTS",
+    "subtitle": "REVIEW ORDER AND TECHNICAL SPECIFICATIONS",
+    "partNo": "PART NO",
+    "summary": "ORDER SUMMARY",
+    "subtotal": "Subtotal",
+    "shipping": "Estimated Shipping",
+    "shippingDesc": "Calculated at checkout",
+    "tax": "Tax (Est.)",
+    "total": "TOTAL",
+    "checkout": "PROCEED TO CHECKOUT",
+    "continue": "CONTINUE SHOPPING",
+    "advisory": {
+      "title": "TECHNICAL ADVISORY",
+      "description": "Our engineers recommend verifying the fitment for {sku} with your chassis number. Would you like a technical review before shipment?",
+      "cta": "ADD VIN FOR VERIFICATION"
+    },
+    "delivery": "EXPRESS INDUSTRIAL DELIVERY AVAILABLE",
+    "warranty": "GENUINE OEM WARRANTY GUARANTEED"
+  },
+  "auth": {
+    "loginTitle": "Access Portal",
+    "loginSubtitle": "Enter your credentials to access the engineering dashboard.",
+    "registerTitle": "Partner Registration",
+    "registerSubtitle": "Join our industrial network and access specialized pricing.",
+    "googleSignIn": "Sign in with Google",
+    "orEmail": "OR EMAIL",
+    "corporateEmail": "CORPORATE EMAIL",
+    "securityKey": "SECURITY KEY",
+    "forgot": "FORGOT?",
+    "keepSession": "Keep session active for 30 days",
+    "authenticate": "AUTHENTICATE ACCESS",
+    "register": "REGISTER ACCOUNT",
+    "newPartner": "New partner?",
+    "requestRegistration": "Request Registration",
+    "alreadyPartner": "Already a partner?",
+    "signIn": "Sign In",
+    "sslEncrypted": "SSL ENCRYPTED",
+    "enterpriseGrade": "ENTERPRISE GRADE",
+    "sectorFocus": "SECTOR FOCUS",
+    "turbosSpareParts": "Turbos & Spare Parts",
+    "serviceReliability": "SERVICE RELIABILITY",
+    "uptime": "99.9% Up-time",
+    "heroTitle": "HÉCTOR SEVERINO",
+    "heroSubtitle": "PRECISION ENGINEERED SYSTEMS FOR HEAVY INDUSTRY.",
+    "backToHome": "BACK TO HOME"
   }
 }

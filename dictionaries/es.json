@@ -111,5 +111,52 @@
     "needFit": "¿Necesita un ajuste específico?",
     "needFitDesc": "Nuestros ingenieros pueden verificar el ajuste para su número de serie específico en 24 horas.",
     "consultExpert": "CONSULTAR A UN EXPERTO"
+  },
+  "cart": {
+    "title": "SUS COMPONENTES",
+    "subtitle": "REVISIÓN DE PEDIDO Y ESPECIFICACIONES TÉCNICAS",
+    "partNo": "NÚMERO DE PARTE",
+    "summary": "RESUMEN DEL PEDIDO",
+    "subtotal": "Subtotal",
+    "shipping": "Envío Estimado",
+    "shippingDesc": "Calculado al finalizar",
+    "tax": "Impuesto (Est.)",
+    "total": "TOTAL",
+    "checkout": "PROCEDER AL PAGO",
+    "continue": "CONTINUAR COMPRANDO",
+    "advisory": {
+      "title": "ASESORÍA TÉCNICA",
+      "description": "Nuestros ingenieros recomiendan verificar el ajuste para {sku} con su número de chasis. ¿Desea una revisión técnica antes del envío?",
+      "cta": "AÑADIR VIN PARA VERIFICACIÓN"
+    },
+    "delivery": "ENTREGA INDUSTRIAL EXPRESS DISPONIBLE",
+    "warranty": "GARANTÍA OEM ORIGINAL GARANTIZADA"
+  },
+  "auth": {
+    "loginTitle": "Portal de Acceso",
+    "loginSubtitle": "Ingrese sus credenciales para acceder al panel de ingeniería.",
+    "registerTitle": "Registro de Socio",
+    "registerSubtitle": "Únase a nuestra red industrial y acceda a precios especializados.",
+    "googleSignIn": "Iniciar sesión con Google",
+    "orEmail": "O CORREO ELECTRÓNICO",
+    "corporateEmail": "CORREO CORPORATIVO",
+    "securityKey": "CLAVE DE SEGURIDAD",
+    "forgot": "¿OLVIDÓ?",
+    "keepSession": "Mantener sesión activa por 30 días",
+    "authenticate": "AUTENTICAR ACCESO",
+    "register": "REGISTRAR CUENTA",
+    "newPartner": "¿Nuevo socio?",
+    "requestRegistration": "Solicitar Registro",
+    "alreadyPartner": "¿Ya es socio?",
+    "signIn": "Iniciar Sesión",
+    "sslEncrypted": "CIFRADO SSL",
+    "enterpriseGrade": "GRADO EMPRESARIAL",
+    "sectorFocus": "ENFOQUE DEL SECTOR",
+    "turbosSpareParts": "Turbos y Repuestos",
+    "serviceReliability": "FIABILIDAD DEL SERVICIO",
+    "uptime": "99.9% de Disponibilidad",
+    "heroTitle": "HÉCTOR SEVERINO",
+    "heroSubtitle": "SISTEMAS DE INGENIERÍA DE PRECISIÓN PARA LA INDUSTRIA PESADA.",
+    "backToHome": "VOLVER AL INICIO"
   }
 }
