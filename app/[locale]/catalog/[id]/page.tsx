@@ -163,7 +163,7 @@ export default async function ProductDetailPage({
           </div>
         </div>
       </main>
-      <Footer dict={dict.footer} />
+      <Footer dict={dict.footer} locale={locale} />
     </>
   );
 }

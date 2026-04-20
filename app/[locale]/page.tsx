@@ -25,7 +25,7 @@ export default async function Home({
         <RestorationLab dict={dict.restoration} />
         <Stats dict={dict.stats} />
       </main>
-      <Footer dict={dict.footer} />
+      <Footer dict={dict.footer} locale={locale} />
     </>
   );
 }

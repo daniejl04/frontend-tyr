@@ -4,6 +4,7 @@
     "spareParts": "Spare Parts",
     "services": "Services",
     "about": "About",
+    "home": "Home",
     "searchPlaceholder": "Search specific parts..."
   },
   "hero": {
@@ -158,5 +159,33 @@
     "heroTitle": "HÉCTOR SEVERINO",
     "heroSubtitle": "PRECISION ENGINEERED SYSTEMS FOR HEAVY INDUSTRY.",
     "backToHome": "BACK TO HOME"
+  },
+  "aboutPage": {
+    "title": "ABOUT US",
+    "subtitle": "PRECISION. RELIABILITY. EXCELLENCE.",
+    "description": "Héctor Severino - Grupo Turbos y Repuestos is a leading provider of high-performance turbochargers and precision components for industrial, marine, and heavy machinery applications. With decades of technical expertise, we ensure your operations never stop.",
+    "mission": {
+      "title": "OUR MISSION",
+      "text": "To deliver engineering solutions that exceed OEM standards, maximizing the efficiency and lifespan of every industrial engine we touch."
+    },
+    "values": {
+      "title": "CORE VALUES",
+      "quality": {
+        "title": "AEROSPACE PRECISION",
+        "text": "We apply the highest standards of balancing and tolerance in every component."
+      },
+      "reliability": {
+        "title": "UNWAVERING RELIABILITY",
+        "text": "Built for the toughest environments, our parts are tested for extreme performance."
+      },
+      "innovation": {
+        "title": "CONTINUOUS INNOVATION",
+        "text": "From advanced restoration techniques to next-gen components, we lead the industry."
+      }
+    },
+    "experience": {
+      "years": "25+",
+      "label": "Years of Expertise"
+    }
   }
 }

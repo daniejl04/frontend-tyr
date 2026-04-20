@@ -4,6 +4,7 @@
     "spareParts": "Repuestos",
     "services": "Servicios",
     "about": "Acerca de",
+    "home": "Inicio",
     "searchPlaceholder": "Buscar piezas específicas..."
   },
   "hero": {
@@ -158,5 +159,33 @@
     "heroTitle": "HÉCTOR SEVERINO",
     "heroSubtitle": "SISTEMAS DE INGENIERÍA DE PRECISIÓN PARA LA INDUSTRIA PESADA.",
     "backToHome": "VOLVER AL INICIO"
+  },
+  "aboutPage": {
+    "title": "ACERCA DE NOSOTROS",
+    "subtitle": "PRECISIÓN. FIABILIDAD. EXCELENCIA.",
+    "description": "Héctor Severino - Grupo Turbos y Repuestos es un proveedor líder de turbocompresores de alto rendimiento y componentes de precisión para aplicaciones industriales, marinas y de maquinaria pesada. Con décadas de experiencia técnica, garantizamos que sus operaciones nunca se detengan.",
+    "mission": {
+      "title": "NUESTRA MISIÓN",
+      "text": "Entregar soluciones de ingeniería que superen los estándares OEM, maximizando la eficiencia y la vida útil de cada motor industrial que tocamos."
+    },
+    "values": {
+      "title": "VALORES FUNDAMENTALES",
+      "quality": {
+        "title": "PRECISIÓN AEROESPACIAL",
+        "text": "Aplicamos los más altos estándares de equilibrado y tolerancia en cada componente."
+      },
+      "reliability": {
+        "title": "FIABILIDAD INQUEBRANTABLE",
+        "text": "Construidas para los entornos más exigentes, nuestras piezas son probadas para un rendimiento extremo."
+      },
+      "innovation": {
+        "title": "INNOVACIÓN CONTINUA",
+        "text": "Desde técnicas avanzadas de restauración hasta componentes de próxima generación, lideramos la industria."
+      }
+    },
+    "experience": {
+      "years": "25+",
+      "label": "Años de Experiencia"
+    }
   }
 }
