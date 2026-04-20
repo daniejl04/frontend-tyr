@@ -28,13 +28,13 @@ const Navbar = ({ dict }: { dict: any }) => {
           className="text-secondary hover:text-on-surface transition-colors" 
           href={`/`}
           >
-            {dict.turbochargers}
+            {dict.home}
           </Link>
           <Link 
           className="text-secondary hover:text-on-surface transition-colors" 
           href={`/${currentLocale}/catalog`}>{dict.spareParts}</Link>
           <Link className="text-secondary hover:text-on-surface transition-colors" href="#">{dict.services}</Link>
-          <Link className="text-secondary hover:text-on-surface transition-colors" href="#">{dict.about}</Link>
+          <Link className="text-secondary hover:text-on-surface transition-colors" href={`/${currentLocale}/about`}>{dict.about}</Link>
         </div>
         <div className="flex items-center gap-4">
           <div className="relative hidden lg:block">

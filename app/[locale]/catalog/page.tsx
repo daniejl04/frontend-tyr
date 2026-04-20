@@ -86,7 +86,7 @@ export default async function CatalogPage({
           </div>
         </div>
       </main>
-      <Footer dict={dict.footer} />
+      <Footer dict={dict.footer} locale={locale} />
     </>
   );
 }
