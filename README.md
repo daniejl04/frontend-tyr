@@ -25,28 +25,65 @@ Sigue estos pasos para ejecutar el proyecto en tu entorno local:
    cd frontend-tyr
    ```
 
-2. **Instalar las dependencias:**
+2. **Configurar variables de entorno:**
+   Crea un archivo `.env` en la raíz del proyecto (puedes copiar el contenido de `.env.example` si existe) y asegúrate de configurar la URL del API:
+   ```env
+   NEXT_PUBLIC_API_URL=http://localhost:3005
+   ```
+
+3. **Instalar las dependencias:**
    ```bash
    npm install
    ```
 
-3. **Ejecutar el servidor de desarrollo:**
+4. **Ejecutar el servidor de desarrollo:**
    ```bash
    npm run dev
    ```
 
-4. **Ver el proyecto:**
+5. **Ver el proyecto:**
    Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
+
+## Integración con API de Productos
+
+El proyecto está configurado para conectarse con un backend en `http://localhost:3005`. El servicio de productos (`services/product-service.ts`) permite realizar búsquedas y filtrados avanzados:
+
+### Endpoints y Filtros
+- **GET /products**: Obtiene la lista de productos paginada.
+  - `page`: Número de página (ej. `1`).
+  - `limit`: Cantidad de productos por página (ej. `10`).
+  - `name`: Filtrar por nombre exacto.
+  - `sku`: Filtrar por SKU exacto.
+  - `status`: Filtrar por estado (ej. `in stock`).
+  - `q`: Búsqueda global por nombre, descripción o SKU.
+
+Ejemplo de uso en el código:
+```typescript
+const response = await productService.getAll({
+  q: 'turbo',
+  page: 1,
+  limit: 10,
+  status: 'in stock'
+});
+```
+
+### Hooks Personalizados
+- **useProducts**: Hook para gestionar el estado de los productos, carga, errores y paginación.
+  ```typescript
+  const { products, loading, search, updateFilters } = useProducts({ limit: 12 });
+  ```
 
 ## Estructura del Proyecto
 
 - `app/`: Contiene las páginas y componentes principales.
+  - `[locale]/`: Soporte para internacionalización (i18n).
   - `components/`: Componentes esenciales (Navbar, Hero, Footer, etc.).
-  - `proxy.ts`: Lógica de proxying y seguridad de rutas.
-  - `layout.tsx`: Configuración global de fuentes y estilos.
-  - `page.tsx`: Página de inicio.
+- `hooks/`: Hooks personalizados de React.
+- `lib/`: Utilidades y clientes (API client, validación de env, etc.).
+- `services/`: Lógica de comunicación con servicios externos (API).
+- `types/`: Definiciones de interfaces y tipos de TypeScript.
 - `public/`: Archivos estáticos.
-- `next.config.ts`: Configuración de Next.js incluyendo cabeceras de seguridad.
+- `next.config.ts`: Configuración de Next.js.
 
 ## Tecnologías Utilizadas
 

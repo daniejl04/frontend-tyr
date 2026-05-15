@@ -2,9 +2,10 @@
  
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
-import { getDictionary } from "../../../../lib/get-dictionary";
-import { getProductById } from "../../../../lib/products";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { getProductById } from "@/lib/server/products";
 import Link from "next/link";
+import ProductDetailBuy from "./ProductDetailBuy";
 
 export default async function ProductDetailPage({
   params,
@@ -39,10 +40,10 @@ export default async function ProductDetailPage({
             {/* Gallery */}
             <div className="space-y-6">
               <div className="bg-surface-container-low aspect-square flex items-center justify-center overflow-hidden border border-outline-variant/10">
-                <img src={product.images[0]} alt={product.name} className="w-4/5 object-contain" />
+                <img src={product.images?.[0] || "/placeholder-product.png"} alt={product.name} className="w-4/5 object-contain" />
               </div>
               <div className="grid grid-cols-4 gap-4">
-                {product.images.slice(0, 3).map((img, i) => (
+                {product.images?.slice(0, 3).map((img, i) => (
                   <div key={i} className="bg-surface-container-low aspect-square flex items-center justify-center border border-outline-variant/10 cursor-pointer hover:border-primary transition-colors">
                     <img src={img} alt={`${product.name} thumb ${i}`} className="w-4/5 object-contain" />
                   </div>
@@ -80,29 +81,24 @@ export default async function ProductDetailPage({
                 {product.description}
               </p>
 
-              <div className="space-y-6 pt-4">
-                <div className="flex items-center gap-6">
-                   <span className="text-[10px] font-black tracking-widest uppercase text-on-surface">
-                     {dict.productDetail.quantity}
-                   </span>
-                   <div className="flex border border-outline-variant/30">
-                     <button className="px-4 py-2 hover:bg-surface-variant transition-colors border-r border-outline-variant/30">-</button>
-                     <span className="px-6 py-2 font-black text-sm">1</span>
-                     <button className="px-4 py-2 hover:bg-surface-variant transition-colors border-l border-outline-variant/30">+</button>
-                   </div>
-                </div>
+              <ProductDetailBuy
+                product={{
+                  id: product._id,
+                  sku: product.sku,
+                  name: product.name,
+                  description: product.description,
+                  price: product.price,
+                  currency: product.currency,
+                  images: product.images ?? [],
+                }}
+                dict={{
+                  quantity: dict.productDetail.quantity,
+                  buyNow: dict.productDetail.buyNow,
+                  requestQuote: dict.productDetail.requestQuote,
+                }}
+              />
 
-                <div className="flex flex-col gap-3">
-                  <button className="w-full bg-primary-container text-on-primary-container py-5 text-xs font-black uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-primary-fixed-dim transition-all">
-                    <span className="material-symbols-outlined text-base">shopping_cart</span>
-                    {dict.productDetail.buyNow}
-                  </button>
-                  <button className="w-full border-2 border-outline-variant text-on-surface py-5 text-[10px] font-black uppercase tracking-[0.2em] hover:bg-surface-container transition-all">
-                    {dict.productDetail.requestQuote}
-                  </button>
-                </div>
-
-                <div className="flex gap-8 pt-4">
+              <div className="flex gap-8 pt-4">
                   <div className="flex items-center gap-2 text-[10px] font-black tracking-widest uppercase text-tertiary">
                     <span className="material-symbols-outlined text-base text-primary">verified</span>
                     {dict.productDetail.certifiedOem}
@@ -114,7 +110,6 @@ export default async function ProductDetailPage({
                 </div>
               </div>
             </div>
-          </div>
 
           {/* Specs & Compatibility */}
           <div className="grid lg:grid-cols-5 gap-16 mt-32">

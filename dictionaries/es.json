@@ -5,7 +5,8 @@
     "services": "Servicios",
     "about": "Acerca de",
     "home": "Inicio",
-    "searchPlaceholder": "Buscar piezas específicas..."
+    "searchPlaceholder": "Buscar piezas específicas...",
+    "myAccount": "Mi cuenta"
   },
   "hero": {
     "titlePrefix": "POTENCIA",
@@ -33,6 +34,7 @@
     "title": "Catálogo de Precisión",
     "inStock": "En Stock",
     "bestSeller": "Más Vendido",
+    "addToCart": "Añadir al carrito",
     "products": [
       { "title": "Ensamblaje de Cartucho CHRA", "model": "Modelo: GT35-82R" },
       { "title": "Juego de Reparación de Juntas", "model": "Compatible: Serie S300" },
@@ -83,7 +85,9 @@
       "sortOptions": {
         "performance": "Mayor Rendimiento",
         "priceLow": "Precio: Menor a Mayor",
-        "priceHigh": "Precio: Mayor a Menor"
+        "priceHigh": "Precio: Mayor a Menor",
+        "nameAsc": "Nombre: A a Z",
+        "nameDesc": "Nombre: Z a A"
       }
     },
     "products": [
@@ -131,7 +135,16 @@
       "cta": "AÑADIR VIN PARA VERIFICACIÓN"
     },
     "delivery": "ENTREGA INDUSTRIAL EXPRESS DISPONIBLE",
-    "warranty": "GARANTÍA OEM ORIGINAL GARANTIZADA"
+    "warranty": "GARANTÍA OEM ORIGINAL GARANTIZADA",
+    "empty": "Tu carrito está vacío",
+    "emptyHint": "Añade piezas desde el catálogo o la página de inicio.",
+    "browseCatalog": "VER CATÁLOGO",
+    "lineTotal": "Subtotal línea",
+    "removeItem": "Eliminar artículo",
+    "checkoutLoading": "Cargando pasarela…",
+    "checkoutEpaycoMissing": "Configure NEXT_PUBLIC_EPAYCO_PUBLIC_KEY para habilitar el pago.",
+    "checkoutEpaycoScriptError": "No se pudo cargar ePayco. Recargue la página.",
+    "checkoutBundleName": "Pedido ({count} artículos)"
   },
   "auth": {
     "loginTitle": "Portal de Acceso",
@@ -158,7 +171,57 @@
     "uptime": "99.9% de Disponibilidad",
     "heroTitle": "HÉCTOR SEVERINO",
     "heroSubtitle": "SISTEMAS DE INGENIERÍA DE PRECISIÓN PARA LA INDUSTRIA PESADA.",
-    "backToHome": "VOLVER AL INICIO"
+    "backToHome": "VOLVER AL INICIO",
+    "username": "Nombre de usuario",
+    "lastname": "Apellidos",
+    "phone": "Teléfono",
+    "countryCode": "Prefijo país",
+    "country": "País",
+    "city": "Ciudad",
+    "photoUrl": "URL de foto (opcional)",
+    "termsAgree": "Acepto los",
+    "termsOfService": "términos del servicio",
+    "otpTitle": "Verificar correo electrónico",
+    "otpSubtitle": "Introduzca el código de 6 dígitos enviado a",
+    "otpPlaceholder": "Código OTP",
+    "otpVerify": "VERIFICAR Y ENTRAR",
+    "otpCancel": "Cancelar",
+    "otpInvalidLength": "El código debe tener 6 dígitos",
+    "otpError": "No se pudo verificar el código",
+    "registering": "Registrando…",
+    "verifying": "Verificando…",
+    "networkError": "Error de red. Inténtelo de nuevo.",
+    "registerSuccessHint": "Revise su correo para el código de verificación.",
+    "requiredField": "Campo obligatorio",
+    "mustAcceptTerms": "Debe aceptar los términos para continuar",
+    "callbackHint": "Inicie sesión o complete el registro para acceder a la página solicitada.",
+    "authenticating": "Autenticando…",
+    "loginOtpHint": "Se ha enviado un código OTP a su correo electrónico.",
+    "googleError": "No se pudo iniciar sesión con Google. Inténtelo de nuevo.",
+    "googlePrefillHint": "No encontramos una cuenta con tu correo de Google. Completa el registro para continuar."
+  },
+  "profilePage": {
+    "title": "MI CUENTA",
+    "subtitle": "INFORMACIÓN DE SESIÓN Y PERMISOS",
+    "userId": "ID de usuario",
+    "username": "Nombre de usuario",
+    "email": "Correo electrónico",
+    "role": "Rol",
+    "permissions": "Permisos",
+    "sessionExpires": "Sesión válida hasta",
+    "noEmail": "No figura en el token",
+    "nonePermissions": "Ninguno en el token actual",
+    "securityNote": "Estos datos provienen de su JWT de acceso almacenado en cookies seguras (httpOnly). Las credenciales no están disponibles para scripts del navegador.",
+    "actionsTitle": "ACCIONES",
+    "logout": "CERRAR SESIÓN",
+    "loggingOut": "Cerrando…"
+  },
+  "paymentResponse": {
+    "titleSuccess": "Pago aprobado",
+    "titlePending": "Resultado del pago",
+    "descSuccess": "Gracias. Su transacción fue procesada correctamente.",
+    "descPending": "El pago puede estar pendiente o no se completó. Revise el correo de confirmación o el estado en ePayco.",
+    "backToCart": "VOLVER AL CARRITO"
   },
   "aboutPage": {
     "title": "ACERCA DE NOSOTROS",

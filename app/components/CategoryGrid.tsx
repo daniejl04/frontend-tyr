@@ -17,7 +17,7 @@ const CategoryGrid = ({ dict }: { dict: any }) => {
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUqUNiazADuOY7oG7iCRMjfd10jakt303Hv5KeGnFA2yoqikz85Zhr-7VSI_BiyR2LbHh9l9M4fi4TI1Kst-ltiay0DCRFEH_7bAVsP-u29TUVDGwXUpd2s_0HzyOHwMaqESI4KpFwdtA1VaIxds5Tg9wwmGeC9SHIiFr8jaDxRZ5-CtYbvMtxGV6mYDeJIHizB1Ytmp8vkmzskQ7GLBeH7yTL5fA99XSGdl364KziHe8Hb42oAGvBkrs6KeUHaiUz7xrGSE7a4UOz"
             />
             <div className="relative z-10 w-full">
-              <h3 className="text-4xl font-headline font-black text-on-surface tracking-tighter uppercase">{dict.turbochargersTitle}</h3>
+              <h3 className="text-4xl font-headline font-black text-on-surface tracking-tighter uppercase">{'Turbochargerdefew'}</h3>
               <p className="text-tertiary font-bold mb-6">{dict.turbochargersDesc}</p>
               <span className="inline-block bg-on-background text-white px-6 py-2 text-sm font-black uppercase tracking-widest group-hover:bg-primary transition-colors">{dict.viewSeries}</span>
             </div>

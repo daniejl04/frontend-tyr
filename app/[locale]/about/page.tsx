@@ -1,6 +1,6 @@
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { getDictionary } from "../../../lib/get-dictionary";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
 
 export default async function AboutPage({
   params,

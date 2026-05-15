@@ -5,7 +5,8 @@
     "services": "Services",
     "about": "About",
     "home": "Home",
-    "searchPlaceholder": "Search specific parts..."
+    "searchPlaceholder": "Search specific parts...",
+    "myAccount": "My account"
   },
   "hero": {
     "titlePrefix": "PRECISION",
@@ -33,6 +34,7 @@
     "title": "Precision Catalog",
     "inStock": "In Stock",
     "bestSeller": "Best Seller",
+    "addToCart": "Add to cart",
     "products": [
       { "title": "Cartridge Assembly CHRA", "model": "Model: GT35-82R" },
       { "title": "Full Gasket Repair Set", "model": "Compatible: S300 Series" },
@@ -83,7 +85,9 @@
       "sortOptions": {
         "performance": "Highest Performance",
         "priceLow": "Price: Low to High",
-        "priceHigh": "Price: High to Low"
+        "priceHigh": "Price: High to Low",
+        "nameAsc": "Name: A to Z",
+        "nameDesc": "Name: Z to A"
       }
     },
     "products": [
@@ -131,7 +135,16 @@
       "cta": "ADD VIN FOR VERIFICATION"
     },
     "delivery": "EXPRESS INDUSTRIAL DELIVERY AVAILABLE",
-    "warranty": "GENUINE OEM WARRANTY GUARANTEED"
+    "warranty": "GENUINE OEM WARRANTY GUARANTEED",
+    "empty": "Your cart is empty",
+    "emptyHint": "Add parts from the catalog or home page.",
+    "browseCatalog": "BROWSE CATALOG",
+    "lineTotal": "Line total",
+    "removeItem": "Remove item",
+    "checkoutLoading": "Loading checkout…",
+    "checkoutEpaycoMissing": "Set NEXT_PUBLIC_EPAYCO_PUBLIC_KEY to enable payments.",
+    "checkoutEpaycoScriptError": "Could not load ePayco. Please refresh the page.",
+    "checkoutBundleName": "Order ({count} items)"
   },
   "auth": {
     "loginTitle": "Access Portal",
@@ -158,7 +171,57 @@
     "uptime": "99.9% Up-time",
     "heroTitle": "HÉCTOR SEVERINO",
     "heroSubtitle": "PRECISION ENGINEERED SYSTEMS FOR HEAVY INDUSTRY.",
-    "backToHome": "BACK TO HOME"
+    "backToHome": "BACK TO HOME",
+    "username": "Username",
+    "lastname": "Last name",
+    "phone": "Phone",
+    "countryCode": "Country code",
+    "country": "Country",
+    "city": "City",
+    "photoUrl": "Photo URL (optional)",
+    "termsAgree": "I agree to the",
+    "termsOfService": "terms of service",
+    "otpTitle": "Verify your email",
+    "otpSubtitle": "Enter the 6-digit code sent to",
+    "otpPlaceholder": "OTP code",
+    "otpVerify": "VERIFY AND CONTINUE",
+    "otpCancel": "Cancel",
+    "otpInvalidLength": "The code must be 6 digits",
+    "otpError": "Could not verify the code",
+    "registering": "Registering…",
+    "verifying": "Verifying…",
+    "networkError": "Network error. Please try again.",
+    "registerSuccessHint": "Check your inbox for the verification code.",
+    "requiredField": "Required field",
+    "mustAcceptTerms": "You must accept the terms to continue",
+    "callbackHint": "Sign in or complete registration to access the page you requested.",
+    "authenticating": "Authenticating…",
+    "loginOtpHint": "An OTP code has been sent to your email.",
+    "googleError": "Could not sign in with Google. Please try again.",
+    "googlePrefillHint": "No account found with your Google email. Complete the registration to continue."
+  },
+  "profilePage": {
+    "title": "MY ACCOUNT",
+    "subtitle": "SESSION INFORMATION AND PERMISSIONS",
+    "userId": "User ID",
+    "username": "Username",
+    "email": "Email",
+    "role": "Role",
+    "permissions": "Permissions",
+    "sessionExpires": "Session valid until",
+    "noEmail": "Not present in token",
+    "nonePermissions": "None in current token",
+    "securityNote": "This data comes from your access JWT stored in secure httpOnly cookies. Credentials are not available to browser scripts.",
+    "actionsTitle": "ACTIONS",
+    "logout": "SIGN OUT",
+    "loggingOut": "Signing out…"
+  },
+  "paymentResponse": {
+    "titleSuccess": "Payment approved",
+    "titlePending": "Payment result",
+    "descSuccess": "Thank you. Your transaction was processed successfully.",
+    "descPending": "The payment may be pending or incomplete. Check your confirmation email or status in ePayco.",
+    "backToCart": "BACK TO CART"
   },
   "aboutPage": {
     "title": "ABOUT US",
