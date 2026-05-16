@@ -1,40 +1,75 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import {
+  AUTH_COOKIE_ACCESS,
+  AUTH_COOKIE_REFRESH,
+} from "@/lib/auth/constants";
+import {
+  getAccessTokenFromRequest,
+  isAccessTokenCookieValid,
+} from "@/lib/auth/middleware-utils";
 
-let locales = ['en', 'es']
-let defaultLocale = 'es'
+const locales = ["en", "es"];
+const defaultLocale = "es";
 
-export async function proxy(request: NextRequest) {
-  const { pathname } = request.nextUrl
-
-  // 1. Seguridad básica: bloquear acceso a rutas sensibles no autorizadas
-  if (pathname.startsWith('/api/admin') && !request.headers.get('x-admin-token')) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
-  // 2. Manejo de multi-lenguaje (i18n)
-  // No queremos aplicar i18n a las rutas de API ni a los archivos estáticos
-  if (pathname.startsWith('/api') || pathname.includes('.')) {
-    return NextResponse.next()
-  }
-
-  const pathnameHasLocale = locales.some(
+function pathnameHasLocale(pathname: string): boolean {
+  return locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  )
+  );
+}
 
-  if (pathnameHasLocale) {
-    return NextResponse.next()
+function isProtectedAccountPath(pathname: string): boolean {
+  return /^\/(en|es)\/account(\/|$)/.test(pathname);
+}
+
+export function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  if (pathname.startsWith("/api")) {
+    if (
+      pathname.startsWith("/api/admin") &&
+      !request.headers.get("x-admin-token")
+    ) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+    return NextResponse.next();
   }
 
-  // Redireccionar si no hay locale
-  const locale = defaultLocale
-  request.nextUrl.pathname = `/${locale}${pathname}`
-  return NextResponse.redirect(request.nextUrl)
+  if (
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/favicon.ico") ||
+    /\.[a-zA-Z0-9]+$/.test(pathname)
+  ) {
+    return NextResponse.next();
+  }
+
+  const hasLocale = pathnameHasLocale(pathname);
+
+  if (hasLocale && isProtectedAccountPath(pathname)) {
+    const token = getAccessTokenFromRequest(request);
+    if (!isAccessTokenCookieValid(token)) {
+      const locale = pathname.split("/")[1] || defaultLocale;
+      const loginUrl = new URL(`/${locale}/auth`, request.url);
+      loginUrl.searchParams.set("callbackUrl", pathname);
+      const res = NextResponse.redirect(loginUrl);
+      res.cookies.delete(AUTH_COOKIE_ACCESS);
+      res.cookies.delete(AUTH_COOKIE_REFRESH);
+      return res;
+    }
+    return NextResponse.next();
+  }
+
+  if (!hasLocale) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${defaultLocale}${pathname}`;
+    return NextResponse.redirect(url);
+  }
+
+  return NextResponse.next();
 }
 
 export const config = {
   matcher: [
-    // Incluimos todo excepto archivos internos de Next.js y estáticos conocidos
-    '/((?!_next|favicon.ico|globe.svg|window.svg|file.svg|next.svg|vercel.svg).*)',
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
-}
+};

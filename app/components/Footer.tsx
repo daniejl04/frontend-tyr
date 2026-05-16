@@ -1,6 +1,7 @@
 import React from "react";
+import Link from "next/link";
 
-const Footer = ({ dict }: { dict: any }) => {
+const Footer = ({ dict, locale }: { dict: any; locale: string }) => {
   return (
     <footer className="bg-neutral-950 w-full border-t-4 border-primary-container">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 px-12 py-16 w-full text-white text-sm uppercase tracking-widest">
@@ -18,10 +19,10 @@ const Footer = ({ dict }: { dict: any }) => {
         <div>
           <h4 className="text-primary-container font-bold mb-6">{dict.nav}</h4>
           <ul className="space-y-3">
-            <li><a className="text-neutral-500 hover:text-white transition-colors hover:underline decoration-2 underline-offset-4" href="#">Turbochargers</a></li>
-            <li><a className="text-neutral-500 hover:text-white transition-colors hover:underline decoration-2 underline-offset-4" href="#">Spare Parts</a></li>
-            <li><a className="text-neutral-500 hover:text-white transition-colors hover:underline decoration-2 underline-offset-4" href="#">Services</a></li>
-            <li><a className="text-neutral-500 hover:text-white transition-colors hover:underline decoration-2 underline-offset-4" href="#">About</a></li>
+            <li><Link className="text-neutral-500 hover:text-white transition-colors hover:underline decoration-2 underline-offset-4" href={`/${locale}`}>Turbochargers</Link></li>
+            <li><Link className="text-neutral-500 hover:text-white transition-colors hover:underline decoration-2 underline-offset-4" href={`/${locale}/catalog`}>Spare Parts</Link></li>
+            <li><Link className="text-neutral-500 hover:text-white transition-colors hover:underline decoration-2 underline-offset-4" href="#">Services</Link></li>
+            <li><Link className="text-neutral-500 hover:text-white transition-colors hover:underline decoration-2 underline-offset-4" href={`/${locale}/about`}>About</Link></li>
           </ul>
         </div>
         <div>
