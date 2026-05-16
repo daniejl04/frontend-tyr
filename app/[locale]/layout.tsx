@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Work_Sans } from "next/font/google";
 import "../globals.css";
+import { CartProvider } from "../components/Cart/CartProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -41,7 +42,7 @@ export default async function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
         />
-        {children}
+        <CartProvider>{children}</CartProvider>
       </body>
     </html>
   );

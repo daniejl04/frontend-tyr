@@ -1,5 +1,5 @@
 import React from "react";
-import { getDictionary } from "../../../lib/get-dictionary";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
 import Link from "next/link";
 
 export default async function AuthLayout({
@@ -63,7 +63,7 @@ export default async function AuthLayout({
           {dict.auth.backToHome}
         </Link>
         
-        <div className="w-full max-w-sm space-y-12 mt-12 lg:mt-0">
+        <div className="w-full max-w-md lg:max-w-lg space-y-12 mt-12 lg:mt-0">
            {children}
         </div>
       </div>

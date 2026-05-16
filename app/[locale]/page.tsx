@@ -5,7 +5,7 @@ import ProductCatalog from "../components/ProductCatalog";
 import RestorationLab from "../components/RestorationLab";
 import Stats from "../components/Stats";
 import Footer from "../components/Footer";
-import { getDictionary } from "../../lib/get-dictionary";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
 
 export default async function Home({
   params,
