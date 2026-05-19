@@ -1,6 +1,7 @@
 import React from "react";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function AuthLayout({
   children,
@@ -17,10 +18,10 @@ export default async function AuthLayout({
       {/* Hero Section */}
       <div className="hidden lg:flex lg:w-3/5 relative bg-on-background overflow-hidden items-center p-24">
         <div className="absolute inset-0 opacity-40">
-           <img 
+           <Image
             alt="Industrial Machinery" 
             className="w-full h-full object-cover" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVYuGPYLyg73AIi5mjveAp0uYl4xuFAWWLwdERWGBHXzR5D5Ay8ho7ljttFF5icKgTkI6cfk2VOrdaX3PE9kx2QidffTU8V6zoIsfmtv9hsMJZCeZvVoUWwyrVpww1CkNtTQELu-ytVHGI2j_g4IONhnaAgrRP_9Ct07KHZsaOEweZCjSW631XcTr9Q2IM7WlVDL1nCl1BPvUCnqia4WblCF0XAmX7Wbw3RRzrNPfk-bZCBJvy5wnDW8KluMYbw1j0bWrS9e4ZP1le"
+            src=""
           />
         </div>
         <div className="relative z-10 space-y-12">

@@ -1,11 +1,10 @@
-
- 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getProductById } from "@/lib/server/products";
 import Link from "next/link";
 import ProductDetailBuy from "./ProductDetailBuy";
+import Image from "next/image";
 
 export default async function ProductDetailPage({
   params,
@@ -40,12 +39,12 @@ export default async function ProductDetailPage({
             {/* Gallery */}
             <div className="space-y-6">
               <div className="bg-surface-container-low aspect-square flex items-center justify-center overflow-hidden border border-outline-variant/10">
-                <img src={product.images?.[0] || "/placeholder-product.png"} alt={product.name} className="w-4/5 object-contain" />
+                <Image src={product.images?.[0] || "/placeholder-product.png"} alt={product.name} className="w-4/5 object-contain" />
               </div>
               <div className="grid grid-cols-4 gap-4">
                 {product.images?.slice(0, 3).map((img, i) => (
                   <div key={i} className="bg-surface-container-low aspect-square flex items-center justify-center border border-outline-variant/10 cursor-pointer hover:border-primary transition-colors">
-                    <img src={img} alt={`${product.name} thumb ${i}`} className="w-4/5 object-contain" />
+                    <Image src={img} alt={`${product.name} thumb ${i}`} className="w-4/5 object-contain" />
                   </div>
                 ))}
                 <div className="bg-surface-container-low aspect-square flex flex-col items-center justify-center border border-outline-variant/10 cursor-pointer hover:border-primary transition-colors">

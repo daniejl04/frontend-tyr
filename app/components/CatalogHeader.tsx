@@ -1,6 +1,11 @@
 import React from "react";
 
-const CatalogHeader = ({ dict }: { dict: any }) => {
+type Dict = {
+  title: string;
+  description: string;
+};
+
+const CatalogHeader = ({ dict }: { dict: Dict }) => {
   return (
     <div className="bg-surface py-12 px-8 border-b border-outline-variant/10">
       <div className="max-w-7xl mx-auto">
