@@ -3,14 +3,14 @@
  */
 export const env = {
   api: {
-    baseUrl: process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api",
+    baseUrl: process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/",
     timeout: Number(process.env.NEXT_PUBLIC_API_TIMEOUT) || 30000,
   },
   /** Base del servicio de auth (sin /api). Ej: http://localhost:3005 */
   auth: {
     baseUrl:
       process.env.AUTH_API_BASE_URL ||
-      process.env.NEXT_PUBLIC_AUTH_API_URL ||
+      process.env.NEXT_PUBLIC_API_URL ||
       "http://localhost:3005",
   },
   firebase: {
