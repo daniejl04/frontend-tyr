@@ -47,9 +47,9 @@ export default async function AdminPage({
   }
 
   // Render Section Selector wrapper (Client state will control section in AdminSidebar and AdminDashboard)
-  // We can pass current locale and dict values cleanly
+  // We can pass current locale, dict, and token cleanly
   return (
-    <AdminLayoutWrapper locale={locale} dict={dict} />
+    <AdminLayoutWrapper locale={locale} dict={dict} token={token || ""} />
   );
 }
 

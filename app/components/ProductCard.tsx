@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useCart } from "./Cart/CartProvider";
 import { parseProductPrice } from "@/lib/utils/parse-price";
+import Image from "next/image";
 
 export interface ProductCardProps {
   id?: string;
@@ -69,11 +70,11 @@ const ProductCard = ({
     const units = stockUnits ?? 0;
     const isOutOfStock = units <= 0;
     const isLowStock = units > 0 && units <= 5;
-    
+
     let statusText = dict.inStock || "In Stock";
     let statusBg = "bg-primary text-white";
     let dotColor = "bg-green-500";
-    
+
     if (isOutOfStock) {
       statusText = dict.outOfStock || "Sin Stock";
       statusBg = "bg-error text-white";
@@ -87,10 +88,12 @@ const ProductCard = ({
     return (
       <div className="bg-surface-container-lowest group relative transition-all border border-outline-variant/15 shadow-sm">
         <div className="h-48 overflow-hidden bg-surface-variant relative flex items-center justify-center">
-          <img
+          <Image
             alt={title}
             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-110 group-hover:scale-100"
             src={image}
+            width={500}
+            height={500}
           />
           <div className={`absolute top-4 left-4 ${statusBg} px-2 py-1 text-[10px] font-black uppercase tracking-widest`}>
             {statusText}

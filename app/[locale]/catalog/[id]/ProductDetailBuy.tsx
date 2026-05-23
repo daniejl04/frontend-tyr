@@ -29,7 +29,7 @@ export default function ProductDetailBuy({
   const [quantity, setQuantity] = useState(1);
 
   const unitPrice = parseProductPrice(product.price);
-  const image = product.images?.[0] || "/placeholder-product.png";
+  const image = product.images?.[0] || "/images/placeholder.jpg";
 
   const adjust = (delta: number) => {
     setQuantity((q) => Math.min(99, Math.max(1, q + delta)));

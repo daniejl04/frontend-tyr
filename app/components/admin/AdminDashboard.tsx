@@ -9,12 +9,14 @@ interface AdminDashboardProps {
   locale: string;
   dict: any;
   activeSection: string;
+  token: string;
 }
 
 export default function AdminDashboard({
   locale,
   dict,
   activeSection,
+  token,
 }: AdminDashboardProps) {
   // Products listing states
   const [products, setProducts] = useState<ProductDetail[]>([]);
@@ -30,6 +32,14 @@ export default function AdminDashboard({
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("0");
   const [image, setImage] = useState("");
+  const [imageFile, setImageFile] = useState<File | null>(null);
+
+  // New Brand, Second Brands, and Custom Description States
+  const [brand, setBrand] = useState("");
+  const [secondBrands, setSecondBrands] = useState<string[]>([]);
+  const [newSecondBrandInput, setNewSecondBrandInput] = useState("");
+  const [showAddSecondBrandInput, setShowAddSecondBrandInput] = useState(false);
+  const [description, setDescription] = useState("");
 
   // Tech Specs States
   const [compInducer, setCompInducer] = useState("");
@@ -134,6 +144,12 @@ export default function AdminDashboard({
     setPrice("");
     setQuantity("0");
     setImage("");
+    setImageFile(null);
+    setBrand("");
+    setSecondBrands([]);
+    setNewSecondBrandInput("");
+    setShowAddSecondBrandInput(false);
+    setDescription("");
     setCompInducer("");
     setCompExducer("");
     setTurbineInducer("");
@@ -145,10 +161,11 @@ export default function AdminDashboard({
     setFormError(null);
   };
 
-  // Image upload base64 converter
+  // Image upload base64 converter and file setter
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      setImageFile(file);
       const reader = new FileReader();
       reader.onloadend = () => {
         setImage(reader.result as string);
@@ -171,6 +188,20 @@ export default function AdminDashboard({
     setCompatibleEngines(compatibleEngines.filter((x) => x !== eng));
   };
 
+  // Second Brand tags control
+  const handleAddSecondBrand = () => {
+    const val = newSecondBrandInput.trim();
+    if (val && !secondBrands.includes(val)) {
+      setSecondBrands([...secondBrands, val]);
+      setNewSecondBrandInput("");
+      setShowAddSecondBrandInput(false);
+    }
+  };
+
+  const handleRemoveSecondBrand = (b: string) => {
+    setSecondBrands(secondBrands.filter((x) => x !== b));
+  };
+
   // Edit action
   const handleEditClick = (id: string) => {
     const prod = products.find((p) => p._id === id);
@@ -180,6 +211,9 @@ export default function AdminDashboard({
     setName(prod.name);
     setSku(prod.sku);
     setCategory(prod.category || "Turbo");
+    setBrand(prod.brand || "");
+    setSecondBrands(prod.secondBrand || []);
+    setDescription(prod.description || "");
 
     // Parse numeric fields cleanly
     const numPrice = typeof prod.price === "number"
@@ -188,6 +222,7 @@ export default function AdminDashboard({
     setPrice(numPrice);
     setQuantity(String(prod.quantity ?? 0));
     setImage(prod.images?.[0] || "");
+    setImageFile(null); // Reset file upload on edit select
 
     // Extract specs safely
     const specsMap = new Map(prod.specs?.map((s) => [s.label, s.value]) || []);
@@ -218,7 +253,7 @@ export default function AdminDashboard({
     if (!confirmation) return;
 
     try {
-      await productService.delete(id);
+      await productService.delete(id, token);
       setProducts(products.filter((p) => p._id !== id));
       alert(locale === "es" ? "Producto eliminado con éxito" : "Product deleted successfully");
     } catch (err) {
@@ -229,11 +264,11 @@ export default function AdminDashboard({
 
   // Submit Handler: Create or Update
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     setFormSuccess(null);
     setFormError(null);
 
-    if (!name.trim() || !sku.trim() || !price || !quantity) {
+    if (!name.trim() || !sku.trim() || !price || !quantity || !brand.trim()) {
       setFormError(locale === "es" ? "Por favor completa todos los campos requeridos." : "Please fill out all required fields.");
       return;
     }
@@ -256,34 +291,76 @@ export default function AdminDashboard({
       desc: "Compatible Engine",
     }));
 
-    // Build payload
     const stockVal = Number(quantity) || 0;
     const finalStatus = stockVal <= 0 ? "OUT OF STOCK" : stockVal <= 5 ? "LOW STOCK" : "IN STOCK";
 
-    const payload: Omit<ProductDetail, "_id"> = {
-      name: name.trim(),
-      sku: sku.trim(),
-      price: `$${parseFloat(price).toFixed(2)}`,
-      category: category,
-      quantity: stockVal,
-      currency: "USD",
-      status: finalStatus,
-      description: `Componente de ingeniería de precisión de tipo ${category}. SKU: ${sku}`,
-      images: [image || "https://lh3.googleusercontent.com/aida-public/AB6AXuDtVbOZ3Tj_2HwxOdAMXIGtZTHlEgRrwjlB4hQG-u-4FS7bJumvwMlEVXN24k8UJr4lLyQTPG7QGENgWCktdQzd9Hh0QXZD1_b_dDCMTBcHGNjNiCUrXOH_MH8PUh2MckysjYI_6qTf0EaWk46pvrgzL_6pI6QFipx8EM_aQ4gwoLmAB6FzqxKxrC6D2pee6eTPTNU-JAvMJBiHEyN3YPqrsJ5yKz2Y6j1F7YNeP-fNbSC8Kx_-fn4aFsW9ypk3xlu-JktUAkuAnzcZ"],
-      specs: specsArray,
-      compatibility: compatibilityArray,
-    };
-
     try {
       if (editingId) {
-        // Update product
-        const updated = await productService.update(editingId, payload);
-        setProducts(products.map((p) => (p._id === editingId ? updated : p)));
+        // Update product via JSON API
+        const updatePayload: Partial<ProductDetail> = {
+          name: name.trim(),
+          sku: sku.trim(),
+          price: String(parseFloat(price) || 0),
+          category: category,
+          quantity: stockVal,
+          currency: "USD",
+          status: finalStatus,
+          brand: brand.trim() || "Generic",
+          secondBrand: secondBrands,
+          description: description.trim() || `Componente de ingeniería de precisión de tipo ${category}. SKU: ${sku}`,
+          specs: specsArray,
+          compatibility: compatibilityArray,
+        };
+
+        let updated = await productService.update(editingId, updatePayload, token);
+
+        if (imageFile) {
+          updated = await productService.uploadImage(editingId, imageFile, token);
+        }
+
+        // Fetch refreshed product details
+        const refreshed = await productService.getById(editingId);
+        setProducts(products.map((p) => (p._id === editingId ? refreshed : p)));
         setFormSuccess(locale === "es" ? "Producto actualizado con éxito" : "Product updated successfully");
       } else {
-        // Create product
-        const created = await productService.create(payload);
-        setProducts([created, ...products]);
+        // Create product via FormData (multipart/form-data)
+        if (!imageFile) {
+          setFormError(locale === "es" ? "Por favor selecciona una imagen para el producto." : "Please upload a product image.");
+          setSubmitting(false);
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append("name", name.trim());
+        formData.append("sku", sku.trim());
+        formData.append("price", String(parseFloat(price) || 0));
+        formData.append("category", category.toLowerCase());
+        formData.append("brand", brand.trim() || "Generic");
+        formData.append("quantity", String(stockVal));
+        formData.append("currency", "USD");
+        formData.append("status", finalStatus);
+        formData.append("description", description.trim() || `Componente de ingeniería de precisión de tipo ${category}. SKU: ${sku}`);
+
+        formData.append("image", imageFile);
+
+        secondBrands.forEach((b) => {
+          formData.append("secondBrand", b);
+        });
+
+        specsArray.forEach((spec, index) => {
+          formData.append(`specs[${index}][label]`, spec.label);
+          formData.append(`specs[${index}][value]`, spec.value);
+        });
+
+        compatibilityArray.forEach((compat, index) => {
+          formData.append(`compatibility[${index}][title]`, compat.title);
+          formData.append(`compatibility[${index}][desc]`, compat.desc);
+        });
+
+        const created = await productService.create(formData, token);
+        // Fetch detailed to obtain full specs and compatibility correctly parsed by backend
+        const refreshed = await productService.getById(created._id);
+        setProducts([refreshed, ...products]);
         setFormSuccess(locale === "es" ? "Producto registrado con éxito" : "Product created successfully");
       }
       resetForm();
@@ -537,6 +614,99 @@ export default function AdminDashboard({
                     required
                   />
                 </div>
+              </div>
+
+              {/* Brand */}
+              <div className="space-y-2">
+                <label className="text-xs font-black uppercase text-secondary tracking-widest">
+                  {locale === "es" ? "Marca *" : "Brand *"}
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. Garrett"
+                  className="w-full bg-surface-container-low border-none rounded-sm p-3 focus:ring-2 focus:ring-primary outline-none transition-all font-medium text-sm text-on-surface"
+                  value={brand}
+                  onChange={(e) => setBrand(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Description */}
+            <div className="mt-8 space-y-2">
+              <label className="text-xs font-black uppercase text-secondary tracking-widest">
+                {locale === "es" ? "Descripción del Producto" : "Product Description"}
+              </label>
+              <textarea
+                placeholder={locale === "es" ? "Ingresa una descripción del repuesto..." : "Enter a description for the part..."}
+                className="w-full bg-surface-container-low border-none rounded-sm p-3 focus:ring-2 focus:ring-primary outline-none transition-all font-medium text-sm text-on-surface h-32 resize-none"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+
+            {/* Second Brands */}
+            <div className="mt-8 space-y-4">
+              <label className="text-xs font-black uppercase text-secondary tracking-widest">
+                {locale === "es" ? "Marcas Secundarias" : "Second Brands"}
+              </label>
+              <div className="flex flex-wrap gap-2 items-center">
+                {secondBrands.map((b) => (
+                  <span
+                    key={b}
+                    className="bg-surface-container py-1 px-3 text-xs font-bold flex items-center gap-2 border border-outline-variant/10 text-on-surface"
+                  >
+                    {b}
+                    <span
+                      className="material-symbols-outlined text-[10px] cursor-pointer hover:text-error"
+                      onClick={() => handleRemoveSecondBrand(b)}
+                    >
+                      close
+                    </span>
+                  </span>
+                ))}
+
+                {showAddSecondBrandInput ? (
+                  <div className="flex items-center gap-1">
+                    <input
+                      type="text"
+                      placeholder="e.g. Honeywell"
+                      className="bg-surface border-b border-outline-variant p-1 outline-none text-xs text-on-surface w-32"
+                      value={newSecondBrandInput}
+                      onChange={(e) => setNewSecondBrandInput(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          e.preventDefault();
+                          handleAddSecondBrand();
+                        }
+                      }}
+                      autoFocus
+                    />
+                    <button
+                      type="button"
+                      onClick={handleAddSecondBrand}
+                      className="material-symbols-outlined text-sm text-primary hover:text-amber-800"
+                    >
+                      check
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowAddSecondBrandInput(false)}
+                      className="material-symbols-outlined text-sm text-secondary hover:text-on-surface"
+                    >
+                      close
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setShowAddSecondBrandInput(true)}
+                    className="border border-dashed border-outline-variant px-3 py-1 text-xs font-bold text-secondary hover:border-primary hover:text-primary transition-all flex items-center gap-1 bg-white"
+                  >
+                    <span className="material-symbols-outlined text-[14px]">add</span>
+                    {locale === "es" ? "Añadir Marca" : "Add Brand"}
+                  </button>
+                )}
               </div>
             </div>
 
@@ -810,7 +980,7 @@ export default function AdminDashboard({
                   title={p.name}
                   model={p.sku}
                   price={p.price}
-                  image={p.images?.[0] || "/placeholder-product.png"}
+                  image={p.images?.[0] || "/images/placeholder.jpg"}
                   inStock={p.status === "IN STOCK"}
                   dict={dict.catalog || {}}
                   locale={locale}

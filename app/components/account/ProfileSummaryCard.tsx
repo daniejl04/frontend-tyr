@@ -42,9 +42,9 @@ export default function ProfileSummaryCard({
 
   const joinedLabel = user
     ? new Date(user.createdAt).toLocaleDateString(
-        locale === "es" ? "es-CO" : "en-US",
-        { dateStyle: "long" }
-      )
+      locale === "es" ? "es-CO" : "en-US",
+      { dateStyle: "long" }
+    )
     : "";
 
   const displayName = user
@@ -78,7 +78,7 @@ export default function ProfileSummaryCard({
           <h2 className="text-3xl md:text-4xl font-headline font-black uppercase tracking-tighter text-on-surface leading-none break-words max-w-md">
             {displayName}
           </h2>
-           <p className="text-[10px] font-black tracking-widest text-primary uppercase">
+          <p className="text-[10px] font-black tracking-widest text-primary uppercase">
             {labels.role}
           </p>
           <p className="text-tertiary text-[10px] font-black tracking-widest uppercase">

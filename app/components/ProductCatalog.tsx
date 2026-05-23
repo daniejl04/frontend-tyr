@@ -6,9 +6,9 @@ import { useProducts } from "@/hooks/use-products";
 import { parseProductPrice } from "@/lib/utils/parse-price";
 
 const ProductCatalog = ({ dict, locale }: { dict: any, locale: string }) => {
-  const { products, loading, error } = useProducts({ 
-    category: 'ventiladores', 
-    limit: 4 
+  const { products, loading, error } = useProducts({
+    category: 'ventiladores',
+    limit: 4
   });
 
   if (error) {
@@ -28,7 +28,7 @@ const ProductCatalog = ({ dict, locale }: { dict: any, locale: string }) => {
           <div className="h-[2px] w-20 bg-primary"></div>
           <h2 className="text-2xl font-headline font-black uppercase tracking-tighter">{dict.title}</h2>
         </div>
-        
+
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 animate-pulse">
             {[...Array(4)].map((_, i) => (
@@ -38,18 +38,18 @@ const ProductCatalog = ({ dict, locale }: { dict: any, locale: string }) => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {products.map((product) => (
-              <ProductCard 
-                key={product._id} 
+              <ProductCard
+                key={product._id}
                 id={product._id}
                 title={product.name}
                 model={product.sku}
                 price={`${product.price} ${product.currency}`}
                 priceAmount={parseProductPrice(String(product.price))}
                 description={product.description ?? ""}
-                image={product.images?.[0] || "/placeholder-product.png"}
+                image={product.images?.[0] || "/images/placeholder.jpg"}
                 inStock={product.status === "IN STOCK"}
-                dict={dict} 
-                locale={locale} 
+                dict={dict}
+                locale={locale}
               />
             ))}
           </div>

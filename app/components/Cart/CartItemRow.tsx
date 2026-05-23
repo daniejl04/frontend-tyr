@@ -19,9 +19,11 @@ const CartItemRow = ({ item, dict }: CartItemRowProps) => {
   return (
     <div className="bg-white p-8 flex gap-8 border border-outline-variant/10 group relative">
       <div className="w-40 h-40 bg-surface-container-low flex items-center justify-center overflow-hidden flex-shrink-0">
-        <Image  
-          src={item.image}
+        <Image
+          src={item.image || "/images/placeholder.jpg"}
           alt={item.name}
+          width={500}
+          height={500}
           className="w-4/5 object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
         />
       </div>

@@ -7,11 +7,13 @@ import AdminDashboard from "@/app/components/admin/AdminDashboard";
 interface AdminLayoutWrapperProps {
   locale: string;
   dict: any;
+  token: string;
 }
 
 export default function AdminLayoutWrapper({
   locale,
   dict,
+  token,
 }: AdminLayoutWrapperProps) {
   const [activeSection, setActiveSection] = useState("inventory");
 
@@ -28,6 +30,7 @@ export default function AdminLayoutWrapper({
           locale={locale}
           dict={dict}
           activeSection={activeSection}
+          token={token}
         />
       </div>
     </div>
