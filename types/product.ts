@@ -10,6 +10,8 @@ export interface ProductDetail {
   status: string;
   description: string;
   images: string[];
+  brand?: string;
+  secondBrand?: string[];
   specs: { label: string; value: string; _id?: string }[];
   compatibility: { title: string; desc: string; _id?: string }[];
 }

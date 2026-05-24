@@ -6,7 +6,8 @@
     "about": "Acerca de",
     "home": "Inicio",
     "searchPlaceholder": "Buscar piezas específicas...",
-    "myAccount": "Mi cuenta"
+    "myAccount": "Mi cuenta",
+    "admin": "Panel Admin"
   },
   "hero": {
     "titlePrefix": "POTENCIA",
@@ -205,16 +206,22 @@
     "subtitle": "INFORMACIÓN DE SESIÓN Y PERMISOS",
     "userId": "ID de usuario",
     "username": "Nombre de usuario",
+    "lastname": "Apellidos",
     "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "location": "Ubicación",
+    "joinedDate": "Fecha de registro",
     "role": "Rol",
     "permissions": "Permisos",
     "sessionExpires": "Sesión válida hasta",
     "noEmail": "No figura en el token",
     "nonePermissions": "Ninguno en el token actual",
+    "none": "Ninguno",
     "securityNote": "Estos datos provienen de su JWT de acceso almacenado en cookies seguras (httpOnly). Las credenciales no están disponibles para scripts del navegador.",
     "actionsTitle": "ACCIONES",
     "logout": "CERRAR SESIÓN",
-    "loggingOut": "Cerrando…"
+    "loggingOut": "Cerrando…",
+    "adminPanel": "Ir al Panel Admin"
   },
   "paymentResponse": {
     "titleSuccess": "Pago aprobado",

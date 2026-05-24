@@ -39,16 +39,16 @@ export default async function ProductDetailPage({
             {/* Gallery */}
             <div className="space-y-6">
               <div className="bg-surface-container-low aspect-square flex items-center justify-center overflow-hidden border border-outline-variant/10">
-                <Image src={product.images?.[0] || "/placeholder-product.png"} alt={product.name} className="w-4/5 object-contain" />
+                <Image src={product.images?.[0] || "/images/placeholder.jpg"} alt={product.name} width={600} height={600} className="w-4/5 object-contain" />
               </div>
               <div className="grid grid-cols-4 gap-4">
                 {product.images?.slice(0, 3).map((img, i) => (
                   <div key={i} className="bg-surface-container-low aspect-square flex items-center justify-center border border-outline-variant/10 cursor-pointer hover:border-primary transition-colors">
-                    <Image src={img} alt={`${product.name} thumb ${i}`} className="w-4/5 object-contain" />
+                    <Image src={product.images?.[0] || "/images/placeholder.jpg"} alt={`${product.name} thumb ${i}`} width={600} height={600} className="w-4/5 object-contain" />
                   </div>
                 ))}
                 <div className="bg-surface-container-low aspect-square flex flex-col items-center justify-center border border-outline-variant/10 cursor-pointer hover:border-primary transition-colors">
-                   <span className="text-[10px] font-black tracking-widest uppercase">+4 PHOTOS</span>
+                  <span className="text-[10px] font-black tracking-widest uppercase">+4 PHOTOS</span>
                 </div>
               </div>
             </div>
@@ -98,17 +98,17 @@ export default async function ProductDetailPage({
               />
 
               <div className="flex gap-8 pt-4">
-                  <div className="flex items-center gap-2 text-[10px] font-black tracking-widest uppercase text-tertiary">
-                    <span className="material-symbols-outlined text-base text-primary">verified</span>
-                    {dict.productDetail.certifiedOem}
-                  </div>
-                  <div className="flex items-center gap-2 text-[10px] font-black tracking-widest uppercase text-tertiary">
-                    <span className="material-symbols-outlined text-base text-primary">local_shipping</span>
-                    {dict.productDetail.globalShipping}
-                  </div>
+                <div className="flex items-center gap-2 text-[10px] font-black tracking-widest uppercase text-tertiary">
+                  <span className="material-symbols-outlined text-base text-primary">verified</span>
+                  {dict.productDetail.certifiedOem}
+                </div>
+                <div className="flex items-center gap-2 text-[10px] font-black tracking-widest uppercase text-tertiary">
+                  <span className="material-symbols-outlined text-base text-primary">local_shipping</span>
+                  {dict.productDetail.globalShipping}
                 </div>
               </div>
             </div>
+          </div>
 
           {/* Specs & Compatibility */}
           <div className="grid lg:grid-cols-5 gap-16 mt-32">
@@ -137,7 +137,7 @@ export default async function ProductDetailPage({
                     <p className="text-[10px] font-bold text-tertiary uppercase tracking-wider">{item.desc}</p>
                   </div>
                 ))}
-                
+
                 <div className="bg-on-background p-8 text-white space-y-4 mt-8">
                   <div className="flex items-center gap-2 text-primary">
                     <span className="material-symbols-outlined">build</span>

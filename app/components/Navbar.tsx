@@ -4,6 +4,7 @@ import React, { Suspense, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCart } from "./Cart/CartProvider";
+import { useUserProfile } from "@/hooks/use-user-profile";
 
 function NavbarInner({ dict }: { dict: any }) {
   const pathname = usePathname();
@@ -11,6 +12,12 @@ function NavbarInner({ dict }: { dict: any }) {
   const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState(searchParams.get("q") || "");
   const { itemCount } = useCart();
+  const { profile } = useUserProfile();
+  const isAdmin =
+    profile &&
+    (profile.role === "admin" ||
+      profile.role === "super_admin" ||
+      profile.role === "super-admin");
 
   const getLocaleUrl = (locale: string) => {
     if (!pathname) return "/";
@@ -63,6 +70,14 @@ function NavbarInner({ dict }: { dict: any }) {
           >
             {dict.about}
           </Link>
+          {isAdmin && (
+            <Link
+              className="text-primary hover:text-primary-fixed-dim transition-colors font-bold uppercase tracking-wide border-b-2 border-primary"
+              href={`/${currentLocale}/admin`}
+            >
+              {dict.admin || "Panel Admin"}
+            </Link>
+          )}
         </div>
         <div className="flex items-center gap-4">
           <form onSubmit={handleSearch} className="relative hidden lg:block">
