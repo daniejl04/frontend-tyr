@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { productService } from '@/services/product-service';
-import { ProductSummary, ProductFilters, PaginatedResponse } from '@/types/product';
+import { ProductSummary, ProductFilters } from '@/types/product';
 
 export const useProducts = (initialFilters: ProductFilters = {}) => {
   const [products, setProducts] = useState<ProductSummary[]>([]);

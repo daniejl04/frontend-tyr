@@ -18,7 +18,7 @@ const CatalogContent = ({ dict, locale }: CatalogContentProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const q = searchParams.get("q") || "";
-  
+
   const { products, loading, error, pagination, filters, updateFilters } = useProducts({
     q,
     brand: searchParams.get("brand") || undefined,
@@ -32,7 +32,7 @@ const CatalogContent = ({ dict, locale }: CatalogContentProps) => {
   });
 
   useEffect(() => {
-    updateFilters({ 
+    updateFilters({
       q,
       brand: searchParams.get("brand") || undefined,
       category: searchParams.get("category") || undefined,
@@ -45,7 +45,7 @@ const CatalogContent = ({ dict, locale }: CatalogContentProps) => {
 
   const handleFilterChange = (newFilters: any) => {
     const params = new URLSearchParams(searchParams.toString());
-    
+
     Object.entries(newFilters).forEach(([key, value]) => {
       if (value === undefined || value === "" || value === null) {
         params.delete(key);
@@ -75,25 +75,25 @@ const CatalogContent = ({ dict, locale }: CatalogContentProps) => {
   return (
     <div className="max-w-7xl mx-auto px-8 py-12 flex flex-col lg:flex-row gap-12">
       {/* Sidebar */}
-      <CatalogSidebar 
-        dict={dict.catalogPage} 
+      <CatalogSidebar
+        dict={dict.catalogPage}
         filters={filters}
         onFilterChange={handleFilterChange}
       />
-      
+
       {/* Main Content */}
       <div className="flex-1 space-y-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <p className="text-[10px] font-black tracking-widest text-tertiary uppercase">
-            {loading 
-              ? "Cargando..." 
+            {loading
+              ? "Cargando..."
               : `${dict.catalogPage.results.showing.split(' ')[0]} ${pagination?.total || 0} PIEZAS DE PRECISIÓN`}
           </p>
           <div className="flex items-center gap-2">
             <span className="text-[10px] font-black tracking-widest text-tertiary uppercase">
               {dict.catalogPage.results.sortBy}
             </span>
-            <select 
+            <select
               className="bg-transparent border-none text-[10px] font-black tracking-widest uppercase outline-none cursor-pointer"
               value={filters.sortBy ? `${filters.sortBy}-${filters.sortOrder}` : ""}
               onChange={(e) => {
@@ -114,7 +114,7 @@ const CatalogContent = ({ dict, locale }: CatalogContentProps) => {
             </select>
           </div>
         </div>
-        
+
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 animate-pulse">
             {[...Array(6)].map((_, i) => (
@@ -124,18 +124,18 @@ const CatalogContent = ({ dict, locale }: CatalogContentProps) => {
         ) : products.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {products.map((p) => (
-              <ProductCard 
-                key={p._id} 
+              <ProductCard
+                key={p._id}
                 id={p._id}
-                title={p.name} 
-                model={p.sku} 
+                title={p.name}
+                model={p.sku}
                 price={`${p.price} ${p.currency ?? ""}`.trim()}
                 priceAmount={parseProductPrice(String(p.price))}
                 description={p.description ?? ""}
-                image={p.images?.[0] || "/placeholder-product.png"} 
+                image={p.images?.[0] || "/images/placeholder.jpg"}
                 inStock={p.status === "IN STOCK"}
-                dict={dict.catalog} 
-                locale={locale} 
+                dict={dict.catalog}
+                locale={locale}
               />
             ))}
           </div>
@@ -146,10 +146,10 @@ const CatalogContent = ({ dict, locale }: CatalogContentProps) => {
             </p>
           </div>
         )}
-        
+
         {pagination && pagination.totalPages > 1 && (
-          <CatalogPagination 
-            currentPage={pagination.page} 
+          <CatalogPagination
+            currentPage={pagination.page}
             totalPages={pagination.totalPages}
             onPageChange={(page) => updateFilters({ page })}
           />

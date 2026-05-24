@@ -78,7 +78,7 @@ export default function CartPageView({
                 <div className="bg-surface-container p-10 border-l-8 border-primary/20 space-y-6 flex flex-col md:flex-row gap-8 items-start">
                   <div className="p-3 bg-on-background text-primary rounded-sm flex items-center justify-center">
                     <span className="material-symbols-outlined text-2xl">
-                      engineering----
+                      engineering
                     </span>
                   </div>
                   <div className="space-y-4 flex-1">

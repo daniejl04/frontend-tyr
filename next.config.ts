@@ -1,6 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images-demo-page.s3.amazonaws.com",
+        pathname: "/**",
+      },
+      {
+        // Allow any AWS S3 bucket in case the bucket changes in the future
+        protocol: "https",
+        hostname: "*.s3.amazonaws.com",
+        pathname: "/**",
+      },
+    ],
+  },
   async headers() {
     return [
       {
@@ -30,7 +45,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  /* config options here */
 };
 
 export default nextConfig;

@@ -7,6 +7,8 @@ import ProfileSummaryCard from "../../components/account/ProfileSummaryCard";
 import LogoutButton from "../../components/account/LogoutButton";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getServerSession } from "@/lib/auth/get-session";
+import { getAccessTokenFromCookies } from "@/lib/auth/session-server";
+import { userService } from "@/services/user-service";
 
 export default async function AccountPage({
   params,
@@ -23,6 +25,21 @@ export default async function AccountPage({
     );
   }
 
+  const token = await getAccessTokenFromCookies();
+  let userProfile = null;
+
+  if (token && session.userId) {
+    try {
+      userProfile = await userService.getProfile(session.userId, token);
+    } catch (error) {
+      console.error(
+        "Error fetching detailed user profile from backend:",
+        error
+      );
+    }
+  }
+
+  const role = userProfile?.role || session.role;
   const p = dict.profilePage;
 
   return (
@@ -32,7 +49,10 @@ export default async function AccountPage({
         <div className="max-w-7xl mx-auto px-8 py-16">
           <header className="mb-12 space-y-4">
             <nav className="flex text-[10px] font-black tracking-widest uppercase text-tertiary/70 mb-6">
-              <Link href={`/${locale}`} className="hover:text-primary transition-colors">
+              <Link
+                href={`/${locale}`}
+                className="hover:text-primary transition-colors"
+              >
                 {dict.navbar.home}
               </Link>
               <span className="mx-2">/</span>
@@ -50,15 +70,21 @@ export default async function AccountPage({
             <div className="lg:col-span-2 space-y-6">
               <ProfileSummaryCard
                 session={session}
+                user={userProfile}
                 labels={{
                   userId: p.userId,
                   username: p.username,
+                  lastname: p.lastname,
                   email: p.email,
+                  phone: p.phone,
+                  location: p.location,
+                  joinedDate: p.joinedDate,
                   role: p.role,
                   permissions: p.permissions,
                   sessionExpires: p.sessionExpires,
                   noEmail: p.noEmail,
                   nonePermissions: p.nonePermissions,
+                  none: p.none,
                 }}
                 locale={locale}
               />
@@ -79,6 +105,16 @@ export default async function AccountPage({
                   label={p.logout}
                   loggingOutLabel={p.loggingOut}
                 />
+                {(role === "admin" ||
+                  role === "super_admin" ||
+                  role === "super-admin") && (
+                  <Link
+                    href={`/${locale}/admin`}
+                    className="block text-center text-[10px] font-black tracking-widest uppercase text-primary hover:text-primary-fixed-dim transition-colors border-b border-primary hover:border-primary-fixed-dim pb-1 font-bold"
+                  >
+                    {p.adminPanel || "Panel de Administrador"}
+                  </Link>
+                )}
                 <Link
                   href={`/${locale}/catalog`}
                   className="block text-center text-[10px] font-black tracking-widest uppercase text-tertiary hover:text-primary transition-colors border-b border-outline-variant hover:border-primary pb-1"

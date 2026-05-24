@@ -30,16 +30,16 @@ async function request<T>(
   }
   const url = `${env.api.baseUrl}${endpoint}${queryString}`;
 
-  const defaultHeaders = {
-    "Content-Type": "application/json",
-  };
+  const requestHeaders = new Headers(headers);
+  if (!(customConfig.body instanceof FormData)) {
+    if (!requestHeaders.has("Content-Type")) {
+      requestHeaders.set("Content-Type", "application/json");
+    }
+  }
 
   const config: RequestInit = {
     method: options.method || "GET",
-    headers: {
-      ...defaultHeaders,
-      ...headers,
-    },
+    headers: requestHeaders,
     ...customConfig,
   };
 
@@ -74,19 +74,19 @@ export const apiClient = {
     request<T>(url, {
       ...options,
       method: "POST",
-      body: JSON.stringify(body),
+      body: body instanceof FormData ? body : JSON.stringify(body),
     }),
   put: <T>(url: string, body: unknown, options?: ApiOptions) =>
     request<T>(url, {
       ...options,
       method: "PUT",
-      body: JSON.stringify(body),
+      body: body instanceof FormData ? body : JSON.stringify(body),
     }),
   patch: <T>(url: string, body: unknown, options?: ApiOptions) =>
     request<T>(url, {
       ...options,
       method: "PATCH",
-      body: JSON.stringify(body),
+      body: body instanceof FormData ? body : JSON.stringify(body),
     }),
   delete: <T>(url: string, options?: ApiOptions) =>
     request<T>(url, { ...options, method: "DELETE" }),

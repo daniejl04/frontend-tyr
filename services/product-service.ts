@@ -25,21 +25,48 @@ export const productService = {
   /**
    * Crea un nuevo producto
    */
-  create: async (data: Omit<ProductDetail, '_id'>): Promise<ProductDetail> => {
-    return apiClient.post<ProductDetail>('/products', data);
+  create: async (data: Omit<ProductDetail, '_id'> | FormData, token: string): Promise<ProductDetail> => {
+    const formData = new FormData();
+
+    return apiClient.post<ProductDetail>('/products', data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   },
 
   /**
    * Actualiza un producto existente
    */
-  update: async (id: string, data: Partial<ProductDetail>): Promise<ProductDetail> => {
-    return apiClient.patch<ProductDetail>(`/products/${id}`, data);
+  update: async (id: string, data: Partial<ProductDetail> | FormData, token: string): Promise<ProductDetail> => {
+    return apiClient.patch<ProductDetail>(`/products/${id}`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  },
+
+  /**
+   * Sube o actualiza la imagen de un producto existente
+   */
+  uploadImage: async (id: string, file: File, token: string): Promise<ProductDetail> => {
+    const formData = new FormData();
+    formData.append('image', file);
+    return apiClient.patch<ProductDetail>(`/products/${id}/image`, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   },
 
   /**
    * Elimina un producto por ID
    */
-  delete: async (id: string): Promise<void> => {
-    return apiClient.delete<void>(`/products/${id}`);
+  delete: async (id: string, token: string): Promise<void> => {
+    return apiClient.delete<void>(`/products/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   }
 };

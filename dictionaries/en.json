@@ -6,7 +6,8 @@
     "about": "About",
     "home": "Home",
     "searchPlaceholder": "Search specific parts...",
-    "myAccount": "My account"
+    "myAccount": "My account",
+    "admin": "Admin Panel"
   },
   "hero": {
     "titlePrefix": "PRECISION",
@@ -205,16 +206,22 @@
     "subtitle": "SESSION INFORMATION AND PERMISSIONS",
     "userId": "User ID",
     "username": "Username",
+    "lastname": "Last name",
     "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "joinedDate": "Joined date",
     "role": "Role",
     "permissions": "Permissions",
     "sessionExpires": "Session valid until",
     "noEmail": "Not present in token",
     "nonePermissions": "None in current token",
+    "none": "None",
     "securityNote": "This data comes from your access JWT stored in secure httpOnly cookies. Credentials are not available to browser scripts.",
     "actionsTitle": "ACTIONS",
     "logout": "SIGN OUT",
-    "loggingOut": "Signing out…"
+    "loggingOut": "Signing out…",
+    "adminPanel": "Go to Admin Panel"
   },
   "paymentResponse": {
     "titleSuccess": "Payment approved",
